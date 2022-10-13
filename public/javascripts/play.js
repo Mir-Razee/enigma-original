@@ -78,12 +78,12 @@ function handleTickInit(tick) {
 		};
 	};
 
-	counter.onended = function () {
+	// counter.onended = function () {
 
-		window.location = '/play'
-		// show message, uncomment the next line
-		// document.querySelector('.tick-onended-message').style.display = '';
-	};
+	// 	window.location = '/play'
+	// 	// show message, uncomment the next line
+	// 	// document.querySelector('.tick-onended-message').style.display = '';
+	// };
 }
 const Toast = Swal.mixin({
 	toast: true,

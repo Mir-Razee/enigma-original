@@ -8,8 +8,8 @@ router.get('/', ensureLoggedIn(), async function (req, res, next) {
     try {
         //to be used for countdown and finish page
         const curDateTime = new Date();
-        const end = new Date("2021-04-25T23:59:59+05:30");
-        const start = new Date('2021-04-23T00:34:59+05:30');
+        const end = new Date("2022-10-30T23:59:59+05:30");
+        const start = new Date('2022-10-01T00:34:59+05:30');
         //console.log(curDateTime.getTime() < start.getTime());
         if (curDateTime.getTime() > end.getTime()) {
             return res.render('end', { layout: 'play_layout' });
@@ -69,8 +69,8 @@ router.get('/', ensureLoggedIn(), async function (req, res, next) {
 router.post('/', ensureLoggedIn(), async function (req, res, next) {
     try {
         const curDateTime = new Date();
-        const end = new Date("2021-04-25T23:59:59+05:30");
-        const start = new Date('2021-04-23T00:34:59+05:30');
+        const end = new Date("2022-10-30T23:59:59+05:30");
+        const start = new Date('2022-10-01T00:34:59+05:30');
         //console.log(curDateTime.getTime() < start.getTime());
         if (curDateTime.getTime() > end.getTime()) {
             return res.render('end', { layout: 'play_layout' });
@@ -132,8 +132,8 @@ router.get('/practice', ensureLoggedIn(), async function (req, res, next) {
     try {
         //to be used for countdown and finish page
         const curDateTime = new Date();
-        const end = new Date("2021-04-25T23:59:59+05:30");
-        const start = new Date('2021-04-23T00:34:59+05:30');
+        const end = new Date("2022-10-30T23:59:59+05:30");
+        const start = new Date('2022-10-01T00:34:59+05:30');
         //console.log(curDateTime.getTime() < start.getTime());
         if (curDateTime.getTime() < start.getTime()) {
             return res.render('', { layout: 'countdown' });
@@ -195,8 +195,8 @@ router.get('/practice', ensureLoggedIn(), async function (req, res, next) {
 router.post('/practice', ensureLoggedIn(), async function (req, res, next) {
     try {
         const curDateTime = new Date();
-        const end = new Date("2021-04-25T23:59:59+05:30");
-        const start = new Date('2021-04-23T00:34:59+05:30');
+        const end = new Date("2022-10-30T23:59:59+05:30");
+        const start = new Date('2022-10-01T00:34:59+05:30');
 
         if (curDateTime.getTime() < start.getTime()) {
             return res.render('', { layout: 'countdown' });

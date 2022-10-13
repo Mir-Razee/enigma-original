@@ -5,7 +5,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
 var logger = require('morgan');
-var expressHbs =  require('express-handlebars');
+var expressHbs = require('express-handlebars');
 const passport = require('passport');
 const redis = require('redis');
 const connectRedis = require('connect-redis');
@@ -26,7 +26,7 @@ require('./config/passport')(passport)
 connectDB();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.engine('hbs', expressHbs({defaultLayout: false,extname: 'hbs',layoutsDir: "views/layouts/"}));
+app.engine('hbs', expressHbs({ defaultLayout: false, extname: 'hbs', layoutsDir: "views/layouts/" }));
 app.set('view engine', 'hbs');
 var hbs = expressHbs.create({});
 hbs.handlebars.registerHelper({
@@ -37,16 +37,16 @@ hbs.handlebars.registerHelper({
   lte: (v1, v2) => v1 <= v2,
   gte: (v1, v2) => v1 >= v2,
   and() {
-      return Array.prototype.every.call(arguments, Boolean);
+    return Array.prototype.every.call(arguments, Boolean);
   },
   or() {
-      return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
+    return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
   },
-  inc: (v) => v+1
+  inc: (v) => v + 1
 });
 
 let redisClient = redis.createClient({
-  url: `redis://:${process.env.REDIS_PASSWORD}@${process.env.REDIS_HOSTNAME}:${process.env.REDIS_PORT}`,
+  url: `redis://wow:${process.env.REDIS_PASSWORD}@${process.env.REDIS_HOSTNAME}:${process.env.REDIS_PORT}`,
   legacyMode: true
 });
 
@@ -100,16 +100,16 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  if(err.status==404){
+  if (err.status == 404) {
     return res.render('', { layout: '404' });
   }
-  res.render('',{layout:'error'});
+  res.render('', { layout: 'error' });
 });
 
-// const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
-// app.listen(PORT, () => {
-//   console.log(`Listening to PORT ${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`Listening to PORT ${PORT}`);
+});
 
 module.exports = app;
